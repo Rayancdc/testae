@@ -3,7 +3,7 @@
     <% if user_signed_in? %>
 
 
-      <h1>Bem Vindo!</h1>
+      <h1>Welcome!</h1>
       <%= link_to "Create Test", new_test_path, class: "btn btn-primary" %>
 
   </div>
@@ -13,8 +13,15 @@
     <% @tests.each do |test| %>
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="test-card">
-          <h1><%= link_to "Test", test_path(test) %></h1>
-          <p><%= test.description %></p>
+          <h1 class="test-card-title text-center">Test</h1>
+          <div class="test-card-content">
+            <p><strong>Price-per-review: </strong><%= test.review_price_cents %></p>
+            <p><strong>Price-per-review: </strong><%= test.issue_price_cents %></p>
+            <div class="test-card-description">
+              <p><%= test.description %></p>
+            </div>
+          </div>
+          <%= link_to "Learn more", test_path(test), class: "btn btn-primary test-card-button" %>
         </div>
       </div>
     <% end %>

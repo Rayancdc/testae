@@ -21,17 +21,15 @@
 
     <% if user_signed_in? %>
 
-      <a href="/cocktails" class="navbar-wagon-item navbar-wagon-link">Show cocktails</a>
-      <a href="/cocktails/new" class="navbar-wagon-item navbar-wagon-link" id="add-button">Add cocktail</a>
-      <a href="/cocktails/random" class="navbar-wagon-item navbar-wagon-link">Random Drink</a>
+      <a href="/tests" class="navbar-wagon-item navbar-wagon-link">Homepage</a>
+      <a href="/contato" class="navbar-wagon-item navbar-wagon-link" id="add-button">Contato</a>
 
       <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <span class="navbar-wagon-item navbar-wagon-link dropdown">
+          <a href="" class="dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">Minha Conta</a>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to "/users/dashboard" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
@@ -46,8 +44,7 @@
               <% end %>
             </li>
           </ul>
-        </div>
-      </div>
+        </span>
 
     <% else %>
       <!-- Login link (when logged out) -->
@@ -56,16 +53,14 @@
 
   </div>
 
-  <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-wagon-item d-md-none">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="/cocktails">Show cocktails</a></li>
-        <li><a href="/cocktails/new">Add cocktail</a></li>
-        <li><a href="/cocktails/random">Random Drink</a></li>
-      </ul>
-    </div>
+<!-- Dropdown appearing on mobile only -->
+  <div class="dropdown navbar-wagon-item d-md-none">
+    <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <li><a href="/tests">Homepage</a></li>
+      <li><a href="/contato">Contato</a></li>
+      <li><a href="/users/dashboard">Minha Conta</a></li>
+    </ul>
   </div>
 </div>
 <div class="navbar-wrapper"></div>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   get '/users/dashboard', to: "tests#dashboard"
 
-  root to: 'tests#home'
+  root to: 'tests#index'
 
   resources :tests do
     resources :reviews, only: [:index, :show, :new, :create]

@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @test = Test.find(params(:test_id))
     @review = Review.new
   end
 

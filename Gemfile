@@ -33,6 +33,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'devise'
+gem 'faker'
 
 
 group :development, :test do

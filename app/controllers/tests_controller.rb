@@ -1,6 +1,9 @@
 class TestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
+  def dashboard
+  end
+
   def index
     @tests = Test.all
   end

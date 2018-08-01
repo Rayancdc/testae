@@ -1,1 +1,9 @@
-new.html.erb
+<div class="container text-center form-container">
+	
+  <h3>Add a new review</h3>
+	  <%= simple_form_for [@test, @review] do |f| %>
+	  <%= f.association :user %>
+	  <%= f.input :issue_description %>
+	  <%= f.button :submit, class: "btn btn-primary" %>
+	<% end %>
+</div>

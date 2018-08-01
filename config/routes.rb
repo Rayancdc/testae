@@ -4,12 +4,8 @@ Rails.application.routes.draw do
   root to: 'tests#home'
 
   resources :tests do
-    resources :reviews, only: [:show, :new, :create]
+    resources :reviews, only: [:index, :show, :new, :create]
   end
 
-
-
-
-
-  get "/riza", to: "tests#rizoca"
+	resources :reviews, only: :index
 end

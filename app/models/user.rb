@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :tests
+  has_many :tests, foreign_key: :owner_id
   has_many :reviews
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

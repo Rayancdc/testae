@@ -1,8 +1,7 @@
 class TestsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
-
   end
 
   def index
@@ -38,8 +37,12 @@ class TestsController < ApplicationController
 
   end
 
+  def rizoca
+    @rizeta = Test.all
+  end
+
   private
   def test_params
-    params.require(:test).permit(:description)
+    params.require(:test).permit(:description, :website, :owner_id)
   end
 end

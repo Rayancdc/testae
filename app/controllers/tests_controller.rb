@@ -17,7 +17,8 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_params)
+    @user = current_user
+    @test = @user.tests.build(test_params)
     if @test.save
       redirect_to test_path(@test)
     else
@@ -37,12 +38,8 @@ class TestsController < ApplicationController
 
   end
 
-  def rizoca
-    @rizeta = Test.all
-  end
-
   private
   def test_params
-    params.require(:test).permit(:description, :website, :owner_id)
+    params.require(:test).permit(:description, :website, :owner_id, :issue_price_cents, :review_price_cents)
   end
 end

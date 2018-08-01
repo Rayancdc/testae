@@ -1,8 +1,25 @@
 <div class="banner">
   <div class="banner-content">
     <% if user_signed_in? %>
+
+
       <h1>Bem Vindo!</h1>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <%= link_to "Create Test", new_test_path, class: "btn btn-primary" %>
+
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <% @tests.each do |test| %>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="test-card">
+          <h1><%= link_to "Test", test_path(test) %></h1>
+          <p><%= test.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
     <% else %>
       <div class="container">
         <h2>Log in</h2>
@@ -19,8 +36,8 @@
         <% end %>
         <%= render "devise/shared/links" %>
       </div>
-    <% end%>
   </div>
 </div>
+    <% end%>
 
 

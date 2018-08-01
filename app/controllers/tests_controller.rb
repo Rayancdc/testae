@@ -1,8 +1,5 @@
 class TestsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
-
-  def home
-  end
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @tests = Test.all

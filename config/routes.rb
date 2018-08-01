@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   resources :tests do
     resources :reviews, only: [:show, :new, :create]
   end
+
+
+
+
+
+  get "/riza", to: "tests#rizoca"
 end

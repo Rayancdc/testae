@@ -2,23 +2,24 @@
   <div class="row">
     <div class="col-xs-12">
 
-
-<div>
-  <h2>Descrição do Teste:</h2>
-</div>
+<div><h2>Descrição do Teste:</h2></div>
 <div class="card">
+  <div class="card-body"> <p><%= @test.description %></p> </div>
+</div>
+
+<div><h3>Accesse o site para testar:</h3></div>
+  <div class="card">
   <div class="card-body">
-    <p><%= @test.description %></p>
+    <p> <%= @test.website %></p>
   </div>
 </div>
 
-      <h2> Accesse o site para testar: <%= @test.website %></h2>
       <h2>Ganhe R$<%= @test.review_price_cents/100 %> por review</h2>
       <h2>Ganhe R$<%= @test.issue_price_cents/100 %> por bug</h2>
 
       <div class="list-inline">
-        <%= link_to "Eu Quero", new_test_review_path(@test), class: "btn btn-primary" %>
-        <%= link_to "Incluir Review", new_test_review_path(@test), class: "btn btn-primary" %>
+        <%= link_to "Eu Quero", new_test_review_path(@test), class: "btn btn-danger btn-lg" %>
+        <%= link_to "Incluir Review", new_test_review_path(@test), class: "btn btn-danger btn-lg" %>
       </div>
 
     </div>

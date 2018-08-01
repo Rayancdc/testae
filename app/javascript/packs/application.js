@@ -4,5 +4,6 @@ import { loadDynamicBannerText } from '../components/banner';
 import { setStickyFooter } from '../components/footer';
 import { initAddCocktail } from '../components/popform';
 
-console.log('Webpacker')
+initUpdateNavbarOnScroll();
+
 setStickyFooter();

@@ -4,7 +4,12 @@
       <%= link_to "Edit test", edit_test_path(@test), class: "btn btn-primary" %>
         <div class="card">
           <div class="card-body">
-            <%= image_tag(@test.logo.url(:thumb)) if @test.logo %>
+            <%= link_to test_path(@test), class: "trash", method: :delete, data: { confirm: 'Are you sure?' } do %>
+             <i class="fas fa-trash"></i>
+             <% end %>
+            <% if @test.logo.url %>
+              <%= image_tag(@test.logo.url(:thumb)) %>
+            <% end %>
             <h1 class="test-title"><%= @test.company + " - " + @test.name %> </h1>
             <p><%= @test.description %></p>
 

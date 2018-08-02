@@ -20,3 +20,20 @@
   bottom: 15px;
   right: 15px
 }
+
+.card-body {
+  position: relative;
+}
+
+.trash {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 3em;
+  color: $dark-blue;
+  opacity: 0.8;
+  &:hover {
+    text-decoration: none;
+    opacity: 1;
+  }
+}

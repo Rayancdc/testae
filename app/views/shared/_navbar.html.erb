@@ -22,7 +22,7 @@
     <% if user_signed_in? %>
 
       <a href="/tests" class="navbar-wagon-item navbar-wagon-link">Homepage</a>
-      <a href="/contato" class="navbar-wagon-item navbar-wagon-link" id="add-button">Contato</a>
+      <a href="/contact" class="navbar-wagon-item navbar-wagon-link" id="add-button">Contato</a>
 
       <!-- Avatar with dropdown menu -->
         <span class="navbar-wagon-item navbar-wagon-link dropdown">
@@ -58,7 +58,7 @@
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
       <li><a href="/tests">Homepage</a></li>
-      <li><a href="/contato">Contato</a></li>
+      <li><a href="/contact">Contato</a></li>
       <li><a href="/users/dashboard">Minha Conta</a></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
     </ul>

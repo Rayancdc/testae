@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   get '/users/dashboard', to: "tests#dashboard"
 
+  get '/contact', to: "contacts#contact"
+
   root to: 'tests#index'
 
   resources :tests do

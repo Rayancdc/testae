@@ -1,0 +1,9 @@
+<%= simple_form_for [@test, @review] do |f| %>
+  <%= f.input :user_agent, collection: ["Desktop", "Notebook", "Tablet", "Mobile"], as: :radio_buttons, label: "Choose your platform" %>
+  <%= f.input :issue_description %>
+  <%= f.input :issue_score, collection: 1..5, as: :radio_buttons, label: "Please rate the importance   of the issue found" %>
+  <%= f.input :screenshot %>
+  <%= f.input :screenshot_cache, as: :hidden %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+

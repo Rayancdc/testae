@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+  before_action :set_test, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
 
   def dashboard
@@ -9,7 +10,6 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find(params[:id])
   end
 
   def new
@@ -27,18 +27,23 @@ class TestsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
+    @test.update(test_params)
 
+    redirect_to test_path(@test)
   end
 
   def destroy
-
+    @test.destroy
   end
 
   private
+  def set_test
+    @test = Test.find(params[:id])
+  end
+
   def test_params
     params.require(:test).permit(:description, :website, :owner_id, :issue_price_cents, :review_price_cents)
   end

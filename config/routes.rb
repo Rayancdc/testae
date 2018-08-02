@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
-  get '/users/dashboard', to: "tests#dashboard"
-
   root to: 'tests#index'
 
-  resources :tests do
-    resources :reviews, only: [:index, :show, :new, :create]
+  devise_for :users
+
+  resources :users, only: [] do
+    collection do
+      get :dashboard
+    end
   end
 
-	resources :reviews, only: :index
+  resources :tests do
+    resources :reviews, only: [:index, :new, :create]
+  end
+
+	resources :reviews, only: [:show]
 end

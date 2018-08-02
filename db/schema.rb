@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_014643) do
+ActiveRecord::Schema.define(version: 2018_08_02_151316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_014643) do
     t.string "user_agent"
     t.text "issue_description"
     t.integer "issue_score"
-    t.string "image"
+    t.string "screenshot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_reviews_on_test_id"
@@ -33,10 +33,14 @@ ActiveRecord::Schema.define(version: 2018_08_01_014643) do
     t.string "website"
     t.integer "review_price_cents"
     t.integer "issue_price_cents"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "logo"
+    t.string "company"
+    t.string "name"
+    t.string "intro"
     t.index ["owner_id"], name: "index_tests_on_owner_id"
   end
 

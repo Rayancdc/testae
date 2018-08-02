@@ -6,5 +6,5 @@ class Review < ApplicationRecord
   validates :issue_score, presence: true, inclusion: { in: [1, 2, 3, 4, 5], message: "must be a number between 1 and 5" }
   validates :user_agent, presence: true
 
-  mount_uploader :screenshot, ImageUploader
+  mount_uploader :screenshot, PhotoUploader
 end

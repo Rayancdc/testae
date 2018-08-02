@@ -11,5 +11,5 @@ class Test < ApplicationRecord
   validates :review_price_cents, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 10 }
   validates :issue_price_cents, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1000 }
 
-  mount_uploader :logo, ImageUploader
+  mount_uploader :logo, PhotoUploader
 end

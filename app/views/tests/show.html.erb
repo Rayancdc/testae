@@ -16,6 +16,7 @@
   <div class="list-inline">
     <%= link_to "Ir para o website", @test.website, class: "btn btn-primary" %>
     <%= link_to "Incluir Review", new_test_review_path(@test), class: "btn btn-primary" %>
+    <%= link_to "Delete Test", test_path(@test), class: "btn btn-danger", method: :delete, data:{confirm:"Are you sure?"} %>
   </div>
 </div>
 

@@ -1,1 +1,15 @@
-new.html.erb
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h3 class="text-center mt-5">Crie um novo teste</h3>
+      <%= simple_form_for [@test] do |f| %>
+        <%= f.input :website %>
+        <%= f.input :description %>
+        <%= f.input :review_price_cents %>
+        <%= f.input :issue_price_cents %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

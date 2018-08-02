@@ -1,9 +1,8 @@
 class TestsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
   before_action :set_test, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
 
-  def home
-
+  def dashboard
   end
 
   def index
@@ -18,7 +17,8 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_params)
+    @user = current_user
+    @test = @user.tests.build(test_params)
     if @test.save
       redirect_to test_path(@test)
     else
@@ -45,7 +45,6 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:description,:website,:review_price_cents,:issue_price_cents,:status)
-
+    params.require(:test).permit(:description, :website, :owner_id, :issue_price_cents, :review_price_cents)
   end
 end

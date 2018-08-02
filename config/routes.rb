@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+  
+  get '/users/dashboard', to: "tests#dashboard"
 
-  root to: 'tests#home'
+  root to: 'tests#index'
 
   resources :tests do
-    resources :reviews, only: [:show, :new, :create]
+    resources :reviews, only: [:index, :show, :new, :create]
   end
+
+	resources :reviews, only: :index
 end

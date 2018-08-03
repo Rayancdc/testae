@@ -3,15 +3,26 @@
     <div class="col-xs-12">
       <div class="card">
         <div class="card-body">
-          <h2>Test: <%= @review.test.name%></h2>
+          <h1>Test: <%= @review.test.name%></h1>
+          <br>
           <h6>Review made by <%= @review.user.email %></h6>
-          <% if @review.screenshot %>
-            <%= image_tag(@review.screenshot.url(:standard)) if @review.screenshot %>
-          <% end %>
-          <p><%= @review.issue_description %></p>
-          <p><%= @review.issue_score %></p>
-          <p><%= @review.created_at %></p>
-          <p><%= link_to "Delete Test", test_path(@test), class: "btn btn-danger", method: :delete, data:{confirm:"Are you sure?"} %></p>
+          <div class= "list-inline">
+          <h3 class= "font-size-h3">Description:
+          <%= @review.issue_description %>
+            <div class= "list-inline">
+            <h3 class= "font-size-h3">User Score:
+              <%= @review.issue_score %>
+            </h3>
+            <br>
+          <% if @review.screenshot.url %>
+             <%= image_tag(@review.screenshot.url(:thumb)) %>
+             <% end %>
+             <p></p>
+          <br>
+          <%= link_to "New Review", new_test_path, class: "btn-purple" %>
+          <br>
+          <br>
+          <h3 class= "font-size-h3"> Review another web app and continue earning!</h3>
         </div>
       </div>
     </div>

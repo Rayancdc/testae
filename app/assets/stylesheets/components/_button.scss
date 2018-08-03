@@ -1,0 +1,17 @@
+.btn-purple {
+  background: linear-gradient(0deg, rgba($black, 0.3) 0%, rgba($dark-purple, 1) 20%, rgba($purple, 1) 100%), $purple;
+  transition: all 0.3s ease;
+  padding: 12px 16px;
+  height: 48px;
+  margin: 8px;
+  color: $light-gray;
+  font-family: $body-font;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  &:hover {
+    background-color: darken($purple, 10%);
+    text-decoration: none;
+    color: $light-gray;
+  }
+}

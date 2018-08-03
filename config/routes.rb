@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     collection do
       get :dashboard
+      get :edit_profile
+      patch :update_profile
       get :my_tests
       get :my_reviews
       get :my_balance

@@ -12,4 +12,15 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
-@import "contacts/contact"
+
+
+body {
+  font-family: $body-font;
+  a {
+    font-family: $body-font;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

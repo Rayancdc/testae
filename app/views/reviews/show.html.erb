@@ -1,11 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1><%= test.name %></h1>
-      <%= link_to "", root_path %>
-      <div class="list-inline">
-    <%= link_to "Delete Test", test_path(@test), class: "btn btn-danger", method: :delete, data:{confirm:"Are you sure?"} %>
-  	</div>
-    	</div>
-  		</div>
-  		</div>
+      <div class="card">
+        <div class="card-body">
+          <h2>Test: <%= @review.test.name%></h2>
+          <h6>Review made by <%= @review.user.email %></h6>
+          <% if @review.screenshot %>
+            <%= image_tag(@review.screenshot.url(:standard)) if @review.screenshot %>
+          <% end %>
+          <p><%= @review.issue_description %></p>
+          <p><%= @review.issue_score %></p>
+          <p><%= @review.created_at %></p>
+          <p><%= link_to "Delete Test", test_path(@test), class: "btn btn-danger", method: :delete, data:{confirm:"Are you sure?"} %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

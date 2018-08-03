@@ -1,5 +1,5 @@
 .banner {
-  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), image-url('background.jpeg');
+  background-image: linear-gradient(-225deg, rgba($dark-blue, 0.6) 0%, rgba($black, 0.5) 66%, rgba($dark-purple, 0.3) 100%), image-url('background.jpeg');
   color: white;
   text-align: center;
   height: 70vh;
@@ -8,6 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.banner-large {
+  height: calc(100vh - 70px) !important;
 }
 .banner h1 {
   font-size: 50px;
@@ -20,4 +24,28 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+}
+
+.banner-card {
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba($black, 0.4);
+  border-radius: 10px;
+  margin: 0 50px;
+  padding: 15px;
+  width: 320px;
+  height: 200px;
+  &:last-child {
+    margin-bottom: 20px;
+  }
+  h5 {
+    margin-bottom: 0px;
+  }
+
+  h2, h3 {
+    margin: 0px;
+  }
 }

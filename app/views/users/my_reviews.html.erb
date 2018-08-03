@@ -1,0 +1,26 @@
+
+
+<h1>My reviews</h1>
+
+
+<div class="container">
+  <div class="row">
+    <% @reviews.each do |review| %>
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="test-card">
+          <h2 class="test-card-title text-center"><%= review.test.company%></h2>
+          <div class="test-card-content">
+            <div class="test-card-description">
+              <p><%= review.issue_description %></p>
+            </div>
+            <div> <%= review.issue_score %> 
+            </div>
+          </div>
+          <%= link_to "Learn more", review_path(review), class: "btn btn-primary test-card-button" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>

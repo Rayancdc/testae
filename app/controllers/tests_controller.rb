@@ -6,7 +6,16 @@ class TestsController < ApplicationController
   end
 
   def index
-    @tests = Test.all
+    if params[:price].present? || params[:company].present?
+      params[:price] = 0 if params[:price] == ""
+      sql_query = " \
+        tests.company ILIKE :company \
+        AND tests.review_price_cents >= :price \
+      "
+      @tests = Test.where(sql_query, { company: "%#{params[:company]}%", price: params[:price] })
+    else
+      @tests = Test.all
+    end
   end
 
   def show

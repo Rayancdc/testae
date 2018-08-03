@@ -1,0 +1,26 @@
+<!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        <%= @user.email %>
+                    </a>
+                </li>
+                <li>
+                    <%= link_to 'Edit Profile', dashboard_users_path %>
+                </li>
+                <li>
+                    <%= link_to 'My Tests', my_tests_users_path %>
+                </li>
+                <li>
+                    <%= link_to 'My reviews', my_reviews_users_path %>
+                </li>
+                <li>
+                    <%= link_to 'My balance', my_balance_users_path %>
+                </li>
+                <li>
+                    <%= link_to 'Invite friends', invite_friends_users_path %>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->

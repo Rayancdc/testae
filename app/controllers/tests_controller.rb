@@ -7,12 +7,12 @@ class TestsController < ApplicationController
 
   def index
     if params[:price].present? || params[:company].present?
-      params[:price] = 0 if params[:price] == ""
+      price_converter
       sql_query = " \
         tests.company ILIKE :company \
         AND tests.review_price_cents >= :price \
       "
-      @tests = Test.where(sql_query, { company: "%#{params[:company]}%", price: params[:price] })
+      @tests = Test.where(sql_query, { company: "%#{params[:company]}%", price: @price })
     else
       @tests = Test.all
     end
@@ -50,6 +50,13 @@ class TestsController < ApplicationController
   end
 
   private
+  def price_converter
+    if params[:price] == ""
+      @price = 0
+    else
+      @price = params[:price].to_f*100
+    end
+  end
   def set_test
     @test = Test.find(params[:id])
   end

@@ -1,11 +1,18 @@
-<div class="banner">
+<% if user_signed_in? %>
+  <div class="banner">
+    <div class="banner-content">
+      <div class="banner-card">
+        <h3>Tester</h3>
+        <h5>I want to earn money testing apps!</h5>
+        <%= link_to "Start now", new_test_path, class: "btn-purple" %>
+      </div>
+  </div>
   <div class="banner-content">
-    <% if user_signed_in? %>
-
-
-      <h1>Welcome!</h1>
-      <%= link_to "Create Test", new_test_path, class: "btn btn-primary" %>
-
+    <div class="banner-card">
+      <h3>Company</h3>
+      <h5>I want to test my web app!</h5>
+      <%= link_to "Create Test", new_test_path, class: "btn-purple" %>
+    </div>
   </div>
 </div>
 <div class="container">
@@ -22,16 +29,17 @@
               <p><%= test.description %></p>
             </div>
           </div>
-          <%= link_to "Learn more", test_path(test), class: "btn btn-primary test-card-button" %>
+          <%= link_to "Learn more", test_path(test), class: "btn-purple test-card-button" %>
         </div>
       </div>
 
     <% end %>
   </div>
 </div>
-    <% else %>
+<% else %>
+  <div class="banner banner-large">
+    <div class="banner-content">
       <div class="container">
-        <h2>Log in</h2>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <%= f.input :email, required: false, autofocus: true %>
@@ -40,10 +48,10 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Log in" %>
+            <%= f.button :submit, "Log in", class: "btn btn-purple" %>
+            <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-purple" %>
           </div>
         <% end %>
-        <%= render "devise/shared/links" %>
       </div>
   </div>
 </div>

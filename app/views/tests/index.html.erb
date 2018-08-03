@@ -15,6 +15,25 @@
     </div>
   </div>
 </div>
+<div class="search-wrapper text-center">
+  <%= form_tag tests_path, method: :get, class: 'form-inline' do %>
+    <div class="form-group">
+      <%= search_field_tag :price, params[:price],
+        placeholder: 'R$5,00',
+        size: 20,
+        class: 'form-control searchTerm' %>
+      <%= search_field_tag :company, params[:company],
+      placeholder: 'iFood',
+      size: 30,
+      class: 'form-control searchTerm' %>
+      <div class="search-btn">
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  <% end %>
+</div>
 <div class="container">
   <div class="row">
     <% @tests.each do |test| %>
@@ -23,8 +42,8 @@
         <div class="test-card">
           <h2 class="test-card-title text-center"><%= test.company%></h2>
           <div class="test-card-content">
-            <p><strong>Price-per-review: </strong><%= test.review_price_cents %></p>
-            <p><strong>Price-per-review: </strong><%= test.issue_price_cents %></p>
+            <p><strong>Price-per-review: </strong><%= number_to_currency(test.review_price_cents/100.00, unit: "R$") %></p>
+            <p><strong>Price-per-bug: </strong><%= number_to_currency(test.issue_price_cents/100.00, unit: "R$") %></p>
             <div class="test-card-description">
               <p><%= test.description %></p>
             </div>
@@ -53,8 +72,8 @@
           </div>
         <% end %>
       </div>
+    </div>
   </div>
-</div>
-    <% end%>
+<% end%>
 
 

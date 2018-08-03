@@ -3,6 +3,7 @@ class Test < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :users, through: :reviews
 
+  validates :description, presence: true
   validates :company, presence: true
   validates :name, presence: true
   validates :intro, presence: true
@@ -12,4 +13,5 @@ class Test < ApplicationRecord
   validates :issue_price_cents, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1000 }
 
   mount_uploader :logo, PhotoUploader
+
 end

@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+
   def new
     @test = Test.find(params[:test_id])
     @review = Review.new

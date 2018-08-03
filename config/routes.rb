@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
   resources :users, only: [] do
     collection do
       get :dashboard
@@ -17,5 +18,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
   end
 
-	resources :reviews, only: [:show]
+	resources :reviews, only: [:index, :destroy, :show]
 end

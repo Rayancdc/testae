@@ -1,0 +1,11 @@
+<%= simple_form_for @user, url: update_profile_users_path do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :address_field_1 %>
+  <%= f.input :address_field_2 %>
+  <%= f.input :address_city %>
+  <%= f.input :address_state %>
+  <%= f.input :zipcode %>
+  <%= f.input :cellphone %>
+  <%= f.button :submit, class: "btn btn-purple" %>
+<% end %>

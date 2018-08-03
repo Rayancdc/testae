@@ -1,28 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <%= link_to "Edit test", edit_test_path(@test), class: "btn-purple" %>
         <div class="card">
           <div class="card-body">
             <%= link_to test_path(@test), class: "trash", method: :delete, data: { confirm: 'Are you sure?' } do %>
              <i class="fas fa-trash"></i>
              <% end %>
-            <% if @test.logo.url %>
-              <%= image_tag(@test.logo.url(:thumb)) %>
-            <% end %>
-            <h1 class="test-title"><%= @test.company + " - " + @test.name %> </h1>
-            <p><%= @test.description %></p>
-
-            <strong>Earn R$<%= @test.review_price_cents/100 %> per review</strong>
-            <br>
-            <strong>Ganhe R$<%= @test.issue_price_cents/100 %> per bug found</strong>
-          </div>
+             <% if @test.logo.url %>
+             <%= image_tag(@test.logo.url(:thumb)) %>
+             <% end %>
+             <%= link_to edit_test_path(@test), class: "pencil" do %>
+             <i class="far fa-edit"></i>
+             <% end %>
+             <h1 class="test-title"><%= @test.company + " - " + @test.name %> </h1>
+             <br>
+             <p><%= @test.description %></p>
+             <strong>Earn R$<%= @test.review_price_cents/100 %> per review</strong>
+             <br>
+             <br>
+             <strong>Earn R$<%= @test.issue_price_cents/100 %> per bug found</strong>
+    <br>
+    <br>
+         <div class="list-inline">
+    <%= link_to "Go to website", @test.website, class: "btn btn-purple" %>
+    <%= link_to "Add Review", new_test_review_path(@test), class: "btn btn-purple" %>
+    <br>
+    <br>
+    <h3 class= "font-size-h3"> Check the website, do your review, and start earning!</h3>
         </div>
-        <h3>Check the website, do your review, and start earning!</h3>
+       </div>
     </div>
   </div>
-  <div class="list-inline">
-    <%= link_to "Ir para o website", @test.website, class: "btn btn-purple" %>
-    <%= link_to "Incluir Review", new_test_review_path(@test), class: "btn btn-purple" %>
-  </div>
 </div>
+          </div>
